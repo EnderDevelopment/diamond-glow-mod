@@ -1,0 +1,39 @@
+plugins {
+    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+extensions {
+    loom {
+        minecraftVersion = '1.21.4'
+        mappings = '1.21.4+build.1'
+        accessWidener = 'src/main/resources/glowingdiamondsmod.accesswidener'
+        modId = 'glowingdiamondsmod'
+        version = '1.0.0'
+        author = 'yousufamini4229'
+        license = 'MIT'
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.4'
+    mappings 'net.fabricmc:yarn:1.21.4+build.1:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.15.11'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.96.11+1.21.4'
+    include 'com.mojang:java-bridge:1.21.4'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'minecraft_version', project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'fabric.mod.json'
+        expand 'version':project.version, 'minecraft_version':project.minecraft.version
+    }
+    into "build/resources/main"
+}

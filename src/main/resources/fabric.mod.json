@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "glowingdiamondsmod",
+  "version": "1.0.0",
+  "name": "Glowing Diamonds Mod",
+  "description": "A mod that makes diamonds glow and seeable through walls",
+  "authors": ["yousufamini4229"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.yousufamini4229.glowingdiamondsmod.GlowingDiamondsMod"
+    ]
+  },
+  "mixins": [
+    "glowingdiamondsmod.mixins.json"
+  ]
+}
